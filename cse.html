@@ -62,31 +62,29 @@
 <form id="dataForm">
   <h2>Fill Lab Cover Details</h2>
 
-  <label for="subject">Subject</label>
-  <input type="text" id="subject" name="subject" placeholder="Subject" value="Electrical And Electronic Circuit Lab" required>
+  <label for="subjectInput">Subject</label>
+  <input type="text" id="subjectInput" name="subject" placeholder="Subject" value="Electrical And Electronic Circuit Lab" required>
 
-  <label for="subjectCode">Subject Code</label>
-  <input type="text" id="subjectCode" name="subjectCode" placeholder="Subject Code" value="510204" required>
+  <label for="subjectCodeInput">Subject Code</label>
+  <input type="text" id="subjectCodeInput" name="subjectCode" placeholder="Subject Code" value="510204" required>
 
-  <label for="studentName">Student Name</label>
-  <input type="text" id="studentName" name="studentName" placeholder="Student Name" value="MD.QUORAISH AHMED" required>
+  <label for="studentNameInput">Student Name</label>
+  <input type="text" id="studentNameInput" name="studentName" placeholder="Student Name" value="MD.QUORAISH AHMED" required>
 
-  <label for="roll">Roll</label>
-  <input type="text" id="roll" name="roll" placeholder="Roll" value="2411750" required>
+  <label for="rollInput">Roll</label>
+  <input type="text" id="rollInput" name="roll" placeholder="Roll" value="2411750" required>
 
-  <label for="registration">Registration</label>
-  <input type="text" id="registration" name="registration" placeholder="Registration" value="23502004639" required>
+  <label for="registrationInput">Registration</label>
+  <input type="text" id="registrationInput" name="registration" placeholder="Registration" value="23502004639" required>
 
-  <label for="session">Session</label>
-  <input type="text" id="session" name="session" placeholder="Session" value="2023-2024" required>
+  <label for="sessionInput">Session</label>
+  <input type="text" id="sessionInput" name="session" placeholder="Session" value="2023-2024" required>
 
-  <label for="teacherName">Teacher Name</label>
-  <input type="text" id="teacherName" name="teacherName" placeholder="Teacher Name" value="Sharmin Akhter Jui" required>
+  <label for="teacherNameInput">Teacher Name</label>
+  <input type="text" id="teacherNameInput" name="teacherName" placeholder="Teacher Name" value="Sharmin Akhter Jui" required>
 
   <button type="submit">Generate Lab Cover</button>
 </form>
-
-
 
 <!-- Lab cover page -->
 <div class="page" role="document" aria-label="Lab cover page">
@@ -97,25 +95,25 @@
   </header>
 
   <div class="subject-block">
-    <p>Subject : <strong id="subject">Electrical And Electronic Circuit Lab</strong></p>
-    <p class="subject-code">Subject Code: <span id="subjectCode">510204</span></p>
+    <p>Subject : <strong id="subjectText">Electrical And Electronic Circuit Lab</strong></p>
+    <p class="subject-code">Subject Code: <span id="subjectCodeText">510204</span></p>
   </div>
 
   <main>
     <div class="submitted-by">
       <div class="section-title">Submitted by</div>
       <div class="info-list">
-        <div><strong>Name:</strong> <span id="studentName">MD.QUORAISH AHMED</span></div>
-        <div><strong>Roll:</strong> <span id="roll">2411700</span></div>
-        <div><strong>Registration:</strong> <span id="registration">2350200000</span></div>
-        <div><strong>Session:</strong> <span id="session">2023-2024</span></div>
+        <div><strong>Name:</strong> <span id="studentNameText">MD. ABDUL AZIZ</span></div>
+        <div><strong>Roll:</strong> <span id="rollText">2411751</span></div>
+        <div><strong>Registration:</strong> <span id="registrationText">23502004646</span></div>
+        <div><strong>Session:</strong> <span id="sessionText">2023-2024</span></div>
       </div>
 
       <div style="height:28px"></div>
 
       <div class="section-title" style="margin-top:22px">Submitted to</div>
       <div class="info-list">
-        <div><span id="teacherName">Sharmin Akhter Jui</span></div>
+        <div><span id="teacherNameText">Sharmin Akhter Jui</span></div>
         <div>CSE Department</div>
         <div>Alhaz Mockbul Hossain College</div>
       </div>
@@ -129,17 +127,17 @@
 
 <script>
 document.getElementById("dataForm").addEventListener("submit", function(e){
-  e.preventDefault(); // prevent page reload
+  e.preventDefault();
   const formData = new FormData(this);
 
   // Populate values on page
-  document.getElementById("subject").textContent = formData.get("subject");
-  document.getElementById("subjectCode").textContent = formData.get("subjectCode");
-  document.getElementById("studentName").textContent = formData.get("studentName");
-  document.getElementById("roll").textContent = formData.get("roll");
-  document.getElementById("registration").textContent = formData.get("registration");
-  document.getElementById("session").textContent = formData.get("session");
-  document.getElementById("teacherName").textContent = formData.get("teacherName");
+  document.getElementById("subjectText").textContent      = formData.get("subject");
+  document.getElementById("subjectCodeText").textContent  = formData.get("subjectCode");
+  document.getElementById("studentNameText").textContent  = formData.get("studentName");
+  document.getElementById("rollText").textContent         = formData.get("roll");
+  document.getElementById("registrationText").textContent = formData.get("registration");
+  document.getElementById("sessionText").textContent      = formData.get("session");
+  document.getElementById("teacherNameText").textContent  = formData.get("teacherName");
 
   // Hide form and show page
   this.style.display = "none";
