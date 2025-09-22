@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Lab Cover - Alhaz Mockbul Hossain College by Quoraish</title>
+<style>
+  :root{
+    --page-width: 210mm;
+    --page-height: 297mm;
+    --margin: 22mm;
+    --font-sans: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --muted: black;
+  }
+
+  body { font-family: var(--font-sans); background: #f0f0f0; }
+
+  .page {
+    width: calc(var(--page-width) - 2 * var(--margin));
+    min-height: calc(var(--page-height) - 2 * var(--margin));
+    margin: var(--margin) auto;
+    box-sizing: border-box;
+    padding: 32px 40px;
+    background: white;
+    color: black;
+    position: relative;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    display: none; /* hide until form submitted */
+  }
+
+  header { text-align: center; margin-bottom: 28px; }
+  .logo { width: 90px; height: 90px; object-fit: contain; display: inline-block; margin-bottom: 8px; }
+  h1 { margin: 6px 0 4px; font-size: 24px; letter-spacing: 0.2px; }
+  .dept { margin: 0; color: var(--muted); font-size: 14px; }
+
+  .subject-block { margin-top: 32px; text-align: center; }
+  .subject-block p { margin: 8px 0; font-size: 16px; color: var(--muted); }
+  .subject-code { margin-top: 8px; font-weight: 600; font-size: 15px; color: black; }
+
+  main { margin-top: 34px; }
+  .section-title { text-decoration: underline; font-weight: 600; margin-bottom: 10px; font-size: 14px; }
+  .info-list { font-size: 14px; color: var(--muted); line-height: 1.9; }
+  .info-list strong { color: black; font-weight:600; }
+
+  .signature { width: 260px; border-top: 1px solid #999; text-align: center; padding-top: 8px; font-size: 13px; color: var(--muted); position: absolute; right: 40px; bottom: 40px; }
+
+  form { max-width: 400px; margin: 20px auto; background: #fff; padding: 20px; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
+  form input { width: 100%; padding: 6px 8px; margin-bottom: 10px; font-size: 14px; }
+  form button { padding: 8px 12px; font-size: 14px; cursor: pointer; }
+
+  @media print{
+    body { background: white; }
+    .page { box-shadow:none; margin: 0; display: block; }
+    form { display:none; }
+  }
+
+  @media (max-width:900px){ .page { padding: 20px; } }
+</style>
+</head>
+<body>
+<!-- Form for user input -->
+<form id="dataForm">
+  <h2>Fill Lab Cover Details</h2>
+
+  <label for="subject">Subject</label>
+  <input type="text" id="subject" name="subject" placeholder="Subject" value="Electrical And Electronic Circuit Lab" required>
+
+  <label for="subjectCode">Subject Code</label>
+  <input type="text" id="subjectCode" name="subjectCode" placeholder="Subject Code" value="510204" required>
+
+  <label for="studentName">Student Name</label>
+  <input type="text" id="studentName" name="studentName" placeholder="Student Name" value="MD.QUORAISH AHMED" required>
+
+  <label for="roll">Roll</label>
+  <input type="text" id="roll" name="roll" placeholder="Roll" value="2411750" required>
+
+  <label for="registration">Registration</label>
+  <input type="text" id="registration" name="registration" placeholder="Registration" value="23502004639" required>
+
+  <label for="session">Session</label>
+  <input type="text" id="session" name="session" placeholder="Session" value="2023-2024" required>
+
+  <label for="teacherName">Teacher Name</label>
+  <input type="text" id="teacherName" name="teacherName" placeholder="Teacher Name" value="Sharmin Akhter Jui" required>
+
+  <button type="submit">Generate Lab Cover</button>
+</form>
+
+
+
+<!-- Lab cover page -->
+<div class="page" role="document" aria-label="Lab cover page">
+  <header>
+    <img src="a.jpeg" alt="College logo" class="logo" />
+    <h1>Alhaz Mockbul Hossain College</h1>
+    <p class="dept">Department of Computer Science and Engineering</p>
+  </header>
+
+  <div class="subject-block">
+    <p>Subject : <strong id="subject">Electrical And Electronic Circuit Lab</strong></p>
+    <p class="subject-code">Subject Code: <span id="subjectCode">510204</span></p>
+  </div>
+
+  <main>
+    <div class="submitted-by">
+      <div class="section-title">Submitted by</div>
+      <div class="info-list">
+        <div><strong>Name:</strong> <span id="studentName">MD.QUORAISH AHMED</span></div>
+        <div><strong>Roll:</strong> <span id="roll">2411700</span></div>
+        <div><strong>Registration:</strong> <span id="registration">2350200000</span></div>
+        <div><strong>Session:</strong> <span id="session">2023-2024</span></div>
+      </div>
+
+      <div style="height:28px"></div>
+
+      <div class="section-title" style="margin-top:22px">Submitted to</div>
+      <div class="info-list">
+        <div><span id="teacherName">Sharmin Akhter Jui</span></div>
+        <div>CSE Department</div>
+        <div>Alhaz Mockbul Hossain College</div>
+      </div>
+    </div>
+  </main>
+
+  <div class="signature">
+    Teacher Signature
+  </div>
+</div>
+
+<script>
+document.getElementById("dataForm").addEventListener("submit", function(e){
+  e.preventDefault(); // prevent page reload
+  const formData = new FormData(this);
+
+  // Populate values on page
+  document.getElementById("subject").textContent = formData.get("subject");
+  document.getElementById("subjectCode").textContent = formData.get("subjectCode");
+  document.getElementById("studentName").textContent = formData.get("studentName");
+  document.getElementById("roll").textContent = formData.get("roll");
+  document.getElementById("registration").textContent = formData.get("registration");
+  document.getElementById("session").textContent = formData.get("session");
+  document.getElementById("teacherName").textContent = formData.get("teacherName");
+
+  // Hide form and show page
+  this.style.display = "none";
+  document.querySelector(".page").style.display = "block";
+
+  // Trigger print
+  window.print();
+});
+</script>
+
+</body>
+</html>
