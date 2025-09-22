@@ -49,9 +49,24 @@
   form button { padding: 8px 12px; font-size: 14px; cursor: pointer; }
 
   @media print{
-    body { background: white; }
-    .page { box-shadow:none; margin: 0; display: block; }
-    form { display:none; }
+      body {
+    background: white;
+
+    /* নতুন যোগ করুন */
+    display: flex;
+    justify-content: center;   /* অনুভূমিকভাবে কেন্দ্র */
+    align-items: center;       /* উল্লম্বভাবে কেন্দ্র */
+    height: 100vh;             /* পুরো পেজ ভিউপোর্ট */
+    margin: 0;
+  }
+
+  .page {
+    box-shadow: none;
+    margin: 0;
+    display: block;
+  }
+
+  form { display: none; }
   }
 
   @media (max-width:900px){ .page { padding: 20px; } }
@@ -150,3 +165,4 @@ document.getElementById("dataForm").addEventListener("submit", function(e){
 
 </body>
 </html>
+
